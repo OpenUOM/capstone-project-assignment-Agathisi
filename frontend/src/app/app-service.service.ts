@@ -10,56 +10,54 @@ export class AppServiceService {
   readonly ROOT_URL;
 
   constructor(private http: HttpClient) {
-    if (environment.production == false) {
+    if(environment.production == false){
       this.ROOT_URL = 'test'
-    } else {
+    }else{
       this.ROOT_URL = 'api'
     }
-
   }
 
-
-  initializeDB() {
+  initializeDB(){
     return this.http.get(`/${this.ROOT_URL}/dbinitialize`)
   }
 
-  getTeacherData() {
+  getTeacherData(){
     return this.http.get(`/${this.ROOT_URL}/listTeachers`)
   }
 
-  getStudentData() {
+  getStudentData(){
     return this.http.get(`/${this.ROOT_URL}/listStudents`)
   }
 
-  getOneStudentData(payload: Object) {
+  getOneStudentData(payload: Object){
     return this.http.post(`/${this.ROOT_URL}/getStudentInfo`, payload)
   }
 
-  getOneTeacherData(payload: Object) {
+  getOneTeacherData(payload: Object){
     return this.http.post(`/${this.ROOT_URL}/getTeacherInfo`, payload)
   }
 
-  addTeacher(payload: Object) {
+  addTeacher(payload: Object){
     return this.http.post(`/${this.ROOT_URL}/addTeacher`, payload)
   }
 
-  deleteTeacher(payload: Object) {
+  deleteTeacher(payload: Object){
     return this.http.post(`/${this.ROOT_URL}/deleteTeacher`, payload)
   }
 
-  editTeacher(payload: Object) {
+  editTeacher(payload: Object){
     return this.http.post(`/${this.ROOT_URL}/editTeacher`, payload)
   }
 
-  editStudent(payload: Object) {
+  editStudent(payload: Object){
     return this.http.post(`/${this.ROOT_URL}/editStudent`, payload)
   }
 
-  addStudent(payload: Object) {
+  addStudent(payload: Object){
     return this.http.post(`/${this.ROOT_URL}/addStudent`, payload)
   }
 
-  deleteStudent(payload: Object) {
+  deleteStudent(payload: Object){
     return this.http.post(`/${this.ROOT_URL}/deleteStudent`, payload)
   }
 }
